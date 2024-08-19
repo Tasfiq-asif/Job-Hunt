@@ -1,0 +1,98 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+    font-family:'Poppins',sans-serif;
+}
+
+
+.navbar-center ul li {
+  list-style: none;
+  position: relative;
+}
+
+.navbar-center ul li::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; /* Adjust this value to control the spacing between text and underline */
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #2a68ff;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+  color: #2a68ff;
+}
+
+.navbar-center ul li:hover::after,
+.navbar-center ul li.active::after {
+  visibility: visible;
+  transform: scaleX(1);
+  
+}
+.navbar-center ul li:hover,
+.navbar-center ul li.active {
+  color: #2a68ff;
+    /* Change the text color to #2a68ff when hover or active */
+}
+
+.tabs-boxed .tab-active:not(.tab-disabled):not([disabled]){
+  background-color: #2a68ff; /* Change this to the desired background color */
+  color: #ffffff;
+ 
+   /* Change this to the desired text color */
+}
+
+
+
+:root {
+  --text-color-light: #333; /* Default text color for light theme */
+  --text-color-dark: #fff; /* Default text color for dark theme */
+  --border-color-light: #ccc; /* Default border color for light theme */
+  --border-color-dark: #fff; /* Default border color for dark theme */
+}
+
+/* Apply styles for light theme */
+[data-theme='light'] {
+  --text-color: var(--text-color-light);
+  --border-color: var(--border-color-light);
+}
+
+/* Apply styles for dark theme */
+[data-theme='dark'] {
+  --text-color: var(--text-color-dark);
+  --border-color: var(--border-color-dark);
+}
+
+/* Apply text color to all elements */
+body {
+  color: var(--text-color);
+}
+th {
+  color: var(--text-color);
+}
+/* Apply border color to input, textarea, and table elements */
+input, textarea, table {
+  border-color: var(--border-color);
+}
+
+/* Media query for dark mode */
+@media (prefers-color-scheme: dark) {
+  /* Set the data-theme attribute to 'dark' for dark mode */
+  :root {
+    --initial-theme: dark;
+  }
+}
+
+/* Media query for light mode */
+@media (prefers-color-scheme: light) {
+  /* Set the data-theme attribute to 'light' for light mode */
+  :root {
+    --initial-theme: light;
+  }
+}
